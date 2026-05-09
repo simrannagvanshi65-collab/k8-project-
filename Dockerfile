@@ -13,6 +13,6 @@ RUN git clone https://github.com/startbootstrap/startbootstrap-agency.git /tmp/s
 # Copy website files
 RUN cp -r /tmp/site/* /var/www/html/
 
-EXPOSE 80
+EXPOSE 80 443
 
 CMD ["apache2ctl", "-D", "FOREGROUND"]
