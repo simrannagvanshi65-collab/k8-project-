@@ -1,4 +1,4 @@
-- hosts: node
+- hosts: k8
   become: true
 
   tasks:
