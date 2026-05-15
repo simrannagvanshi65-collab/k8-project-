@@ -7,3 +7,10 @@
 
     - name: create new service
       command: kubectl apply -f /home/ubuntu/Service.yml
+    
+    - name: Check pods
+      command: kubectl get pods
+      register: output
+
+    - debug:
+        var: output.stdout_lines
