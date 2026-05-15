@@ -1,15 +1,21 @@
 - hosts: k8
-#  become: true
 
   tasks:
-    - name: create new deployment
-      command: kubectl apply -f /home/ubuntu/Deployment.yml
 
-    - name: create new service
-      command: kubectl apply -f /home/ubuntu/Service.yml
-    
+    - name: Deploy application
+      shell: |
+        export KUBECONFIG=/home/ubuntu/.kube/config
+        kubectl apply -f /home/ubuntu/deployment.yml
+
+    - name: Deploy service
+      shell: |
+        export KUBECONFIG=/home/ubuntu/.kube/config
+        kubectl apply -f /home/ubuntu/service.yml
+
     - name: Check pods
-      command: kubectl get pods
+      shell: |
+        export KUBECONFIG=/home/ubuntu/.kube/config
+        kubectl get pods -A
       register: output
 
     - debug:
