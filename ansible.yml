@@ -1,5 +1,5 @@
 - hosts: k8
-  become: true
+#  become: true
 
   tasks:
     - name: create new deployment
